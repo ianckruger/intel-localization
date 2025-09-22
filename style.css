@@ -11,15 +11,7 @@ h1, h2, h3 {
 }
 
 
-/* Ensure the timeline section itself takes full width */
-.timeline-section {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-}
-
-.timeline-container {
+.card-container {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -28,9 +20,6 @@ h1, h2, h3 {
   margin: 0 auto;
   scroll-padding: 20px;
   margin: 15px;
-  width: 100%; /* Ensure full width */
-  max-width: none; /* Override any Bootstrap container restrictions */
-  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .card {
@@ -198,7 +187,7 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
-  .timeline-container {
+  .container {
     flex-direction: column;
     align-items: center;
   }
@@ -225,11 +214,11 @@ h1, h2, h3 {
 }
 
 /* Ensure container scrolling works in both directions */
-[dir="rtl"] .timeline-container {
+[dir="rtl"] .container {
   direction: rtl;
 }
 
-[dir="ltr"] .timeline-container {
+[dir="ltr"] .container {
   direction: ltr;
 }
 
