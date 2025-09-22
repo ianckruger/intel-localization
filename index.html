@@ -25,6 +25,21 @@
       gap: 20px;
     }
     .header h1, .header p { color: white; }
+    .timeline-section {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+    }
+    .timeline-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      margin: 0 auto;
+      width: 100%;
+      max-width: none;
+    }
     .card {
       position: relative;
       flex: 0 0 calc((100% - 40px) / 3);
@@ -61,8 +76,8 @@
   </header>
 
   <!-- Timeline Cards Section -->
-  <section>
-    <div class="container">
+  <section class="timeline-section">
+    <div class="timeline-container">
 
     <!-- Card 1: 1968 -->
     <div class="card">
