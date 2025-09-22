@@ -1,0 +1,24 @@
+# GitHub Pages Jekyll Configuration
+# This ensures proper CSS loading and disables Jekyll processing for CSS files
+
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+include:
+  - "*.css"
+  - "*.js"
+
+# Prevent Jekyll from processing CSS files
+sass:
+  style: compressed
+
+# Ensure CSS files are included
+defaults:
+  - scope:
+      path: "*.css"
+    values:
+      sitemap: false

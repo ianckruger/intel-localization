@@ -4,8 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="./style.css" media="all" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Fallback CSS in case external CSS doesn't load on GitHub Pages -->
+  <style>
+    /* Critical CSS Fallback */
+    body { 
+      font-family: 'Poppins', Arial, sans-serif; 
+      margin: 0; 
+    }
+    .header {
+      background-image: linear-gradient(to bottom right, rgb(0, 195, 255), rgb(0, 17, 255));
+      width: 100%;
+      height: 400px;
+      justify-content: center;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      padding: 20px;
+      gap: 20px;
+    }
+    .header h1, .header p { color: white; }
+    .card {
+      position: relative;
+      flex: 0 0 calc((100% - 40px) / 3);
+      height: 300px;
+      max-width: 450px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
   <!-- Bootstrap CSS will be loaded dynamically by JavaScript based on detected language -->
   <link rel="stylesheet" id="bootstrap-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -313,6 +342,40 @@
       // Document already loaded
       detectAndSetLanguage();
     }
+    
+    // Debug CSS loading for GitHub Pages
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Page loaded, checking CSS...');
+      
+      // Check if CSS is loaded
+      const cssLink = document.querySelector('link[href*="style.css"]');
+      if (cssLink) {
+        console.log('CSS link found:', cssLink.href);
+        
+        // Test if CSS is actually applied
+        const testElement = document.body;
+        const computedStyle = window.getComputedStyle(testElement);
+        const fontFamily = computedStyle.fontFamily;
+        
+        console.log('Body font-family:', fontFamily);
+        
+        if (fontFamily.includes('Poppins')) {
+          console.log('✅ CSS loaded successfully!');
+        } else {
+          console.log('❌ CSS not loaded properly. Font should be Poppins but is:', fontFamily);
+          
+          // Try to reload CSS
+          const newLink = document.createElement('link');
+          newLink.rel = 'stylesheet';
+          newLink.type = 'text/css';
+          newLink.href = './style.css?v=' + Date.now(); // Cache buster
+          document.head.appendChild(newLink);
+          console.log('Attempted to reload CSS with cache buster');
+        }
+      } else {
+        console.log('❌ CSS link not found in document');
+      }
+    });
     
     // Newsletter form functionality
     document.getElementById('newsletterForm').addEventListener('submit', function(e) {
