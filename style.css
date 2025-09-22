@@ -32,6 +32,12 @@ h1, h2, h3 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   scroll-snap-align: start;
   transition: transform 0.3s, box-shadow 0.3s ease-in-out;
+  
+  /* Override Bootstrap card styles to preserve custom design */
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .card:hover {
@@ -113,6 +119,73 @@ h1, h2, h3 {
   color: black;
 }
 
+.columndesign {
+  padding: 30px !important;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.columndesign img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.specialimg {
+  width: 80px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.button {
+  border: none;
+  background-color: #003d7a; /* Darker blue for better contrast */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: inline-block;
+  font-weight: 600; /* Bolder text for better readability */
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #002952; /* Even darker on hover */
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:focus {
+  outline: 3px solid #ffd700; /* High contrast focus indicator */
+  outline-offset: 2px;
+}
+
+.below-footer1{
+  text-align: left;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 40px!important;
+}
+
+.below-footer2{
+  text-align: right;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-right: 40px!important;
+}
+
+
+
+.subscribeheader {
+  text-align: center;
+  color: black;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -123,5 +196,292 @@ h1, h2, h3 {
     flex: 1 1 100%;     
     max-height: 300px;         
     max-width: 100%;
+  }
+}
+
+/* RTL/LTR specific styles */
+[dir="rtl"] .card h2,
+[dir="rtl"] .card h3 {
+  text-align: right;
+}
+
+[dir="rtl"] .card-text {
+  text-align: right;
+}
+
+[dir="rtl"] .header {
+  text-align: right;
+}
+
+/* Ensure container scrolling works in both directions */
+[dir="rtl"] .container {
+  direction: rtl;
+}
+
+[dir="ltr"] .container {
+  direction: ltr;
+}
+
+/* Fix any Bootstrap card conflicts */
+.card.card {
+  /* Double class selector for higher specificity */
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+/* Ensure card images maintain proper sizing */
+.card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Newsletter Subscription Form Styles */
+#subscribe {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.subscribeheader {
+  color: #003d7a; /* Darker blue for better contrast */
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.subscription-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.subscription-description {
+  color: #333; /* Darker text for better contrast */
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-weight: 500; /* Slightly bolder */
+}
+
+.subscription-form {
+  background: #fafafa; /* Slightly off-white for better contrast with text */
+  border: 2px solid #e0e6ed; /* More visible border */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e6ed;
+}
+
+.form-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.email-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 15px 20px;
+  border: 2px solid #e0e6ed;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+}
+
+.subscribe-btn {
+  background: linear-gradient(135deg, #003d7a 0%, #002952 100%); /* Darker blues for better contrast */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Poppins', Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.subscribe-btn:hover {
+  background: linear-gradient(135deg, #002952 0%, #001a38 100%); /* Even darker on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 61, 122, 0.4);
+}
+
+.subscribe-btn:focus {
+  outline: 3px solid #ffd700; /* High contrast focus indicator */
+  outline-offset: 2px;
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+.form-checkboxes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #333; /* Darker text for better contrast */
+  transition: color 0.3s ease;
+  font-weight: 500; /* Slightly bolder */
+}
+
+.checkbox-label:hover {
+  color: #003d7a; /* Darker blue for better contrast */
+}
+
+.checkbox-label:focus-within {
+  outline: 2px solid #ffd700; /* Focus indicator for keyboard navigation */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e0e6ed;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+  background: #003d7a; /* Darker blue for better contrast */
+  border-color: #003d7a;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  font-weight: bold; /* Bolder checkmark */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.privacy-note {
+  font-size: 0.85rem;
+  color: #333; /* Much darker gray for better contrast */
+  line-height: 1.5;
+  font-weight: 500; /* Slightly bolder for better readability */
+}
+
+.privacy-link {
+  color: #003d7a; /* Darker blue for better contrast */
+  text-decoration: underline; /* Always underlined for better distinction */
+  font-weight: 600; /* Bolder text */
+}
+
+.privacy-link:hover {
+  color: #002952; /* Even darker on hover */
+  text-decoration: underline;
+  background-color: #f0f7ff; /* Light background on hover for better visibility */
+  padding: 1px 2px;
+  border-radius: 3px;
+}
+
+.privacy-link:focus {
+  outline: 3px solid #ffd700; /* High contrast focus indicator */
+  outline-offset: 2px;
+}
+
+.success-message {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d4edda;
+}
+
+.success-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #155724;
+}
+
+.success-icon {
+  font-size: 1.5rem;
+}
+
+.success-content p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* RTL Support for Newsletter Form */
+[dir="rtl"] .form-group {
+  direction: rtl;
+}
+
+[dir="rtl"] .checkbox-label {
+  direction: rtl;
+}
+
+[dir="rtl"] .subscription-description,
+[dir="rtl"] .privacy-note {
+  text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .subscribeheader {
+    font-size: 2rem;
+  }
+  
+  .subscription-form {
+    padding: 30px 20px;
+  }
+  
+  .form-group {
+    flex-direction: column;
+  }
+  
+  .email-input {
+    min-width: auto;
+  }
+  
+  .form-checkboxes {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .checkbox-label {
+    width: 100%;
   }
 }
